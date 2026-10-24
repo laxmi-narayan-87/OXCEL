@@ -129,3 +129,20 @@
  .home-footer h3{font-size:13px}
  .home-footer p{font-size:12px}
 }
+
+
+/* Spacing refinement: keep readable typography and bring the next section into view sooner */
+@media(min-width:761px){
+ .home-hero{padding-top:26px;padding-bottom:26px}
+ .home-hero-grid{gap:38px;align-items:center}
+ .home-services{padding-top:32px;padding-bottom:36px}
+ .home-section-heading{margin-bottom:20px}
+ .home-why{padding-top:34px;padding-bottom:36px}
+}
+@media(max-width:760px){
+ .home-hero{padding-top:22px;padding-bottom:24px}
+ .home-hero-grid{gap:19px}
+ .home-services{padding-top:30px;padding-bottom:32px}
+ .home-section-heading{margin-bottom:19px}
+ .home-why{padding-top:30px;padding-bottom:32px}
+}
