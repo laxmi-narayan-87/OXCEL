@@ -17,6 +17,11 @@
     .bike-copy p { margin-bottom: 1rem; }
     .cta-box { margin-top: 2rem; padding: 2rem; border-radius: 12px; text-align: center; color: white; background: linear-gradient(110deg,#073b8f,#f07832); }
     .cta-box h2, .cta-box h3 { color: white; }
+    .bike-footer-bottom { display:flex; align-items:center; justify-content:space-between; gap:1rem; flex-wrap:wrap; }
+    .footer-trust-badges { display:flex; gap:.6rem; align-items:center; }
+    .footer-trust-badges span { display:inline-flex; align-items:center; gap:.35rem; border-radius:999px; padding:.35rem .7rem; background:#202d42; color:#dce5f2; font-size:.85rem; white-space:nowrap; }
+    .footer-disclaimer { margin:1.25rem 0 0; text-align:center; color:#9aa9bd; font-size:.8rem; }
+    @media(max-width:650px) { .bike-footer-bottom { align-items:flex-start; flex-direction:column; } }
   </style>
 </head>
 <body>
@@ -103,7 +108,11 @@
         <div><h3>Trusted Packers &amp; Movers in Pune</h3><div class="footer-links"><a href="packers-movers-pune.html">Packers Movers Pune</a><a href="car-transportation-pune.html">Car Transport</a><a href="bike-transportation-pune.html">Bike Transport</a><a href="contactus.html">Contact Us</a></div><ul class="partner-list"><li>Mr. Pradeep Sharma · <a href="tel:9371666001">9371666001</a></li><li>Mr. Monu Sharma · <a href="tel:9607255002">9607255002</a></li><li>Mr. Amarjeet Verma · <a href="tel:9881715755">9881715755</a></li><li>Mr. Sandeep Bhoriwal · <a href="tel:9050667955">9050667955</a></li></ul></div>
         <div><h3>Contact Info</h3><p><i class="fas fa-map-marker-alt"></i> Pune, Maharashtra, India</p><p><i class="fas fa-clock"></i> Open 7 Days, 8 AM – 8 PM</p><h3>Payment Methods</h3><p>Cash · Cards · UPI · Net Banking · Bank Transfer</p></div>
       </div>
-      <div class="footer-bottom"><span>© 2026 Oxcel Packers Movers Business Directory. All rights reserved.</span><span>We do not transport hazardous, perishable, or illegal items.</span></div>
+      <div class="footer-bottom bike-footer-bottom">
+        <span>© 2026 Oxcel Packers Movers Business Directory. All rights reserved.</span>
+        <div class="footer-trust-badges"><span><i class="fas fa-star"></i> 4.8★ Rated</span><span><i class="fas fa-shield-alt"></i> Insured Moves</span></div>
+      </div>
+      <p class="footer-disclaimer"><i class="far fa-times-circle"></i> We do not transport hazardous, perishable, or illegal items.</p>
     </div>
   </footer>
   <a class="btn floating-cta" href="contactus.html">Get a Quote ↗</a>
