@@ -10,7 +10,10 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 <style>
-  :root{--bike-navy:#0e192e;--bike-blue:#24488e;--bike-orange:#ff7010}
+  :root{--bike-navy:#0e192e;--bike-blue:#24488e;--bike-orange:#ff7010;scroll-behavior:smooth;scroll-padding-top:24px}
+  .skip-link{position:absolute;left:12px;top:-60px;z-index:1000;background:#fff;color:#0e192e;padding:12px 16px;border:2px solid #ff7010;border-radius:8px}
+  .skip-link:focus{top:12px}
+  a:focus-visible,button:focus-visible{outline:3px solid #ff7010;outline-offset:3px}
   *{box-sizing:border-box}
   html,body{margin:0;padding:0}
   body{font-family:Poppins,Arial,sans-serif;color:#27374b;background:#fff;font-size:18px;line-height:1.6}
@@ -106,6 +109,7 @@
 </style>
 </head>
 <body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
 <header class="header">
   <div class="container nav">
     <a class="brand" href="index.html" aria-label="Oxcel home"><img class="logo-img" src="https://oxcel.net/logon.png" alt="Packers And Movers Pune"></a>
@@ -121,10 +125,10 @@
     </nav>
   </div>
 </header>
-<main>
+<main id="main-content">
   <section class="page-hero">
     <div class="container"><div class="page-hero-grid">
-      <div><h1>Oxcel Packers and Movers Marathahalli Best Service</h1><p>About Packers and Movers in Marathahalli</p></div>
+      <div><h1>Packers and Movers in Marathahalli, Bengaluru</h1><p>Relocation information, service options, and guidance for comparing movers</p></div>
     </div></div>
   </section>
   <section class="section" id="bike-transportation">
@@ -260,14 +264,9 @@
         <div class="social-links"><a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a><a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a><a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a><a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a></div>
       </div>
       <div>
-        <h3>Listed Partner Contacts</h3>
-        <ul class="partner-list">
-          <li>Mr. Pradeep Sharma | <a href="tel:9371666001">9371666001</a></li>
-          <li>Mr Monu Sharma | <a href="tel:9607255002">9607255002</a></li>
-          <li>Mr Amarjeet Verma | <a href="tel:9881715755">9881715755</a></li>
-          <li>Mr Sandeep Bhoriwal | <a href="tel:9050667955">9050667955</a></li>
-        </ul>
-        <p class="partner-note">Confirm that each listed contact serves Marathahalli and verify identity and pricing independently before booking.</p>
+        <h3>Choosing a Moving Provider</h3>
+        <p>Confirm the provider’s service area, identity, insurance, written quote, and recent independent reviews before booking.</p>
+        <p><a href="contactus.html">Contact us for website information</a></p>
       </div>
       <div>
         <h3>Contact Info</h3>
