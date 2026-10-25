@@ -3,72 +3,49 @@
 .logo-img { height: 27px; width: auto; display: block; }
 
 .main-nav, .main-nav ul { gap: 10px; }
-/* Review annotations: use a fixed, viewport-aware tooltip layer so parent overflow and stacking contexts cannot clip suggestions. */
-.grammar-flag, .ux-flag {
-    position: relative;
-    cursor: help;
-}
+/* Review annotation styling. Tooltips are rendered in a body-level overlay, not pseudo-elements inside components. */
+.grammar-flag, .ux-flag { position: relative; cursor: help; }
 .grammar-flag {
-    display: inline;
-    color: #111;
-    background: #e53935;
-    font-weight: 800;
-    padding: 0.08em 0.22em;
-    border-radius: 3px;
-    box-decoration-break: clone;
-    -webkit-box-decoration-break: clone;
+  display: inline;
+  color: #111;
+  background: #e53935;
+  font-weight: 800;
+  padding: .08em .22em;
+  border-radius: 3px;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
 }
-.grammar-flag::after, .ux-flag::after {
-    position: fixed;
-    z-index: 2147483647;
-    left: max(12px, min(50vw, calc(100vw - 352px)));
-    top: 12px;
-    width: min(340px, calc(100vw - 24px));
-    box-sizing: border-box;
-    padding: 12px 14px;
-    border-radius: 8px;
-    background: #fff;
-    color: #111;
-    font: 600 13px/1.5 Arial, sans-serif;
-    white-space: normal;
-    overflow-wrap: anywhere;
-    box-shadow: 0 8px 28px rgba(0,0,0,.28);
-    opacity: 0;
-    visibility: hidden;
-    pointer-events: none;
-    transition: opacity .12s ease;
-}
-.grammar-flag::after {
-    content: "Suggested correction: " attr(data-correction);
-    border: 2px solid #e53935;
-}
-.ux-flag {
-    outline: 2px dashed #7c3aed;
-    outline-offset: 3px;
-    border-radius: 3px;
-}
-.ux-flag::after {
-    content: "UI/UX issue: " attr(data-issue);
-    border: 2px solid #7c3aed;
-}
-.grammar-flag:hover::after, .grammar-flag:focus::after,
-.ux-flag:hover::after, .ux-flag:focus::after {
-    opacity: 1;
-    visibility: visible;
-}
+.ux-flag { outline: 2px dashed #7c3aed; outline-offset: 3px; border-radius: 3px; }
 .ux-flag:focus { outline-style: solid; }
-.site-footer .grammar-flag {
-    background: #ffeb3b;
-    color: #111;
-    font-weight: 800;
+.site-footer .grammar-flag { background: #ffeb3b; color: #111; font-weight: 800; }
+.review-tooltip {
+  position: fixed !important;
+  z-index: 2147483647 !important;
+  top: 12px !important;
+  right: 12px !important;
+  left: auto !important;
+  width: min(380px, calc(100vw - 24px)) !important;
+  max-height: min(42vh, 280px) !important;
+  overflow: auto !important;
+  box-sizing: border-box !important;
+  padding: 14px 16px !important;
+  border: 2px solid #7c3aed !important;
+  border-radius: 10px !important;
+  background: #fff !important;
+  color: #111 !important;
+  font: 600 14px/1.5 Arial, sans-serif !important;
+  white-space: normal !important;
+  overflow-wrap: anywhere !important;
+  box-shadow: 0 10px 36px rgba(0,0,0,.32) !important;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
 }
-.site-footer .grammar-flag::after { border-color: #d4a900; }
+.review-tooltip.is-visible { opacity: 1; visibility: visible; }
+.review-tooltip.is-grammar { border-color: #e53935 !important; }
+.site-footer ~ .review-tooltip.is-grammar { border-color: #d4a900 !important; }
 @media (max-width: 480px) {
-    .grammar-flag::after, .ux-flag::after {
-        left: 12px;
-        top: 12px;
-        width: calc(100vw - 24px);
-    }
+  .review-tooltip { top: 8px !important; right: 8px !important; width: calc(100vw - 16px) !important; }
 }
 </style>
     
@@ -396,5 +373,58 @@
     </footer>
 
     <script src="https://oxcel.net/assets/js/main.js"></script>
+
+
+<script>
+(function () {
+  function initReviewTooltips() {
+    var tip = document.getElementById('review-tooltip');
+    if (!tip) {
+      tip = document.createElement('div');
+      tip.id = 'review-tooltip';
+      tip.className = 'review-tooltip';
+      tip.setAttribute('role', 'status');
+      tip.setAttribute('aria-live', 'polite');
+      document.body.appendChild(tip);
+    }
+    var active = null;
+    function show(el) {
+      if (!el || !el.matches('.grammar-flag, .ux-flag')) return;
+      active = el;
+      var isUx = el.classList.contains('ux-flag');
+      var message = isUx ? el.getAttribute('data-issue') : el.getAttribute('data-correction');
+      if (!message) return;
+      tip.textContent = (isUx ? 'UI/UX issue: ' : 'Suggested correction: ') + message;
+      tip.classList.toggle('is-grammar', !isUx);
+      tip.classList.add('is-visible');
+    }
+    function hide(el) {
+      if (!el || active === el) {
+        active = null;
+        tip.classList.remove('is-visible', 'is-grammar');
+        tip.textContent = '';
+      }
+    }
+    document.addEventListener('pointerover', function (event) {
+      var el = event.target.closest && event.target.closest('.grammar-flag, .ux-flag');
+      if (el) show(el);
+    });
+    document.addEventListener('pointerout', function (event) {
+      var el = event.target.closest && event.target.closest('.grammar-flag, .ux-flag');
+      if (el && !el.contains(event.relatedTarget)) hide(el);
+    });
+    document.addEventListener('focusin', function (event) {
+      var el = event.target.closest && event.target.closest('.grammar-flag, .ux-flag');
+      if (el) show(el);
+    });
+    document.addEventListener('focusout', function (event) {
+      var el = event.target.closest && event.target.closest('.grammar-flag, .ux-flag');
+      if (el) hide(el);
+    });
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', initReviewTooltips);
+  else initReviewTooltips();
+})();
+</script>
 
 </body></html>
