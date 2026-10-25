@@ -1190,3 +1190,8 @@ img, video, iframe, canvas, svg { max-width: 100%; }
 pre, table { max-width: 100%; }
 pre { overflow-x: auto; }
 table { display: block; overflow-x: auto; }
+
+/* Mobile scaling */
+html{width:100%;-webkit-text-size-adjust:100%;text-size-adjust:100%}body{width:100%;min-width:0}img,video,iframe,canvas,svg{max-width:100%}.services-grid{grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr))}.features-grid{grid-template-columns:repeat(auto-fit,minmax(min(100%,230px),1fr))}
+@media(max-width:800px){.hero .container{display:flex;flex-direction:column;align-items:stretch}.hero-content,.hero-image,.quote-info,.quote-form{width:100%;min-width:0;flex:1 1 auto}.hero-content h1{font-size:clamp(1.9rem,7vw,2.8rem);overflow-wrap:anywhere}.quote-wrapper{padding:clamp(16px,4vw,32px);gap:24px}.quote-info,.quote-form{flex-basis:100%}}
+@media(max-width:480px){.container{padding-left:14px;padding-right:14px}.site-header .container{padding:10px 14px;flex-wrap:wrap}.logo-img{max-width:calc(100vw - 90px);height:auto}.brand-name{font-size:clamp(1.15rem,6vw,1.6rem)}.hero-content p,.info-block p{overflow-wrap:anywhere}.hero-buttons{flex-wrap:wrap}.hero-rating{max-width:100%;flex-wrap:wrap}}
