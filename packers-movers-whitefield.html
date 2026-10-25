@@ -15,6 +15,51 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet">
     <!-- Custom CSS -->
     <link rel="stylesheet" href="assets/css/style.css">
+<style>/* Review annotation styling. Tooltips are rendered in a body-level overlay, not pseudo-elements inside components. */
+.grammar-flag, .ux-flag { position: relative; cursor: help; }
+.grammar-flag {
+  display: inline;
+  color: #111;
+  background: #e53935;
+  font-weight: 800;
+  padding: .08em .22em;
+  border-radius: 3px;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+.ux-flag { outline: 2px dashed #7c3aed; outline-offset: 3px; border-radius: 3px; }
+.ux-flag:focus { outline-style: solid; }
+.site-footer .grammar-flag { background: #ffeb3b; color: #111; font-weight: 800; }
+.review-tooltip {
+  position: fixed !important;
+  z-index: 2147483647 !important;
+  top: 12px !important;
+  right: 12px !important;
+  left: auto !important;
+  width: min(380px, calc(100vw - 24px)) !important;
+  max-height: min(42vh, 280px) !important;
+  overflow: auto !important;
+  box-sizing: border-box !important;
+  padding: 14px 16px !important;
+  border: 2px solid #7c3aed !important;
+  border-radius: 10px !important;
+  background: #fff !important;
+  color: #111 !important;
+  font: 600 14px/1.5 Arial, sans-serif !important;
+  white-space: normal !important;
+  overflow-wrap: anywhere !important;
+  box-shadow: 0 10px 36px rgba(0,0,0,.32) !important;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+.review-tooltip.is-visible { opacity: 1; visibility: visible; }
+.review-tooltip.is-grammar { border-color: #e53935 !important; }
+.site-footer ~ .review-tooltip.is-grammar { border-color: #d4a900 !important; }
+@media (max-width: 480px) {
+  .review-tooltip { top: 8px !important; right: 8px !important; width: calc(100vw - 16px) !important; }
+}
+</style>
 </head>
 <body>
     
@@ -123,7 +168,7 @@
             <!-- Services Offered -->
             <h2>Services Offered by Us</h2>
             <div class="info-block">
-                <p>We provide information about many services. One of the main services shown on the website is packers and movers in Whitefield The services include:</p>
+                <p>We provide information about many services. One of the main services shown on the website is <span class="grammar-flag" tabindex="0" data-correction="Punctuation: add a full stop between these sentences.">packers and movers in Whitefield The services include</span>:</p>
                 <ul>
                     <li>Local house shifting services</li>
                     <li>Long-distance relocation services</li>
@@ -137,7 +182,7 @@
             </div>
 
             <!-- Why Choose -->
-            <h2>Why Choose us</h2>
+            <h2><span class="grammar-flag" tabindex="0" data-correction="Heading capitalization should be consistent.">Why Choose us</span></h2>
             <div class="info-block">
                 <p>People choose Oxcel for many reasons:</p>
                 <ul>
@@ -153,8 +198,8 @@
             <!-- Reviews -->
             <h2>Reviews</h2>
             <div class="info-block">
-                <p>Many users find oxcel.net useful as an information website. The service descriptions are easy to read and helpful for planning house or office shifting. Users like the simple explanations and cost guidance. helps people make better decisions and reduces confusion during relocation planning.</p>
-                <p>Oxcel is a trusted online platform associated with professional Packers and Movers services in Whitefield and across India. Through its collaboration with experienced logistics partners such as Oxcel Packers and Movers, provides reliable, technology-driven relocation solutions for residential, commercial, and long-distance moving needs.</p>
+                <p>Many users find oxcel.net useful as an information website. The service descriptions are easy to read and helpful for planning house or office shifting. Users like the simple explanations and <span class="grammar-flag" tabindex="0" data-correction="Grammar: remove the full stop that breaks the sentence.">cost guidance. helps people</span> make better decisions and reduces confusion during relocation planning.</p>
+                <p>Oxcel is a trusted online platform associated with professional Packers and Movers services in Whitefield and across India. Through its collaboration with experienced logistics partners such as <span class="grammar-flag" tabindex="0" data-correction="Punctuation: remove the unnecessary comma between subject and verb.">Oxcel Packers and Movers, provides</span> reliable, technology-driven relocation solutions for residential, commercial, and long-distance moving needs.</p>
                 <p>The company focuses on customer convenience by offering online booking, transparent communication, and end-to-end relocation support. With years of industry experience, Oxcel has built a strong reputation for safety, efficiency, and customer satisfaction in the packing and moving sector.</p>
             </div>
 
@@ -163,7 +208,7 @@
             <div class="info-block">
                 <p>Oxcel offers a wide range of relocation and logistics services to meet diverse customer requirements. These include household shifting (1BHK, 2BHK, and 3BHK), office relocation, local shifting within Bangalore, and intercity moves such as Bangalore to Hyderabad, Chennai, Mumbai, Pune, Delhi, Kolkata, and Gurgaon.</p>
                 <p>The company also provides car transportation services for hatchbacks, sedans, and SUVs. Additional services include professional packing using high-quality materials, dismantling and reassembling furniture, loading and unloading, GPS-enabled transportation, insurance coverage, and secure warehousing solutions.</p>
-                <p>Free home surveys and instant quotations through WhatsApp and online systems further enhance customer convenience. Reasons that make you select Oxcel stands out due to its customer-centric approach and transparent pricing structure.</p>
+                <p>Free home surveys and instant quotations through WhatsApp and online systems further enhance customer convenience. <span class="grammar-flag" tabindex="0" data-correction="Grammar: the original heading combines incompatible sentence structures.">Reasons that make you select Oxcel stands out</span> due to its customer-centric approach and transparent pricing structure.</p>
                 <p>The platform ensures quick response times, easy booking, and clear cost breakdowns without hidden charges. Skilled manpower, modern packing techniques, and advanced logistics support ensure the safe handling of delicate and valuable items such as glass, electronics, and furniture. The availability of real-time tracking, dedicated customer support, and flexible scheduling makes Oxcel a reliable choice for both local and long-distance relocations. Their commitment to quality service and affordability makes them a preferred option compared to other packers and movers.</p>
             </div>
 
@@ -174,7 +219,7 @@
             </div>
 
             <!-- About Packers and Movers in Whitefield -->
-            <h2>About Packers and Movers in Whitefield Oxcel</h2>
+            <h2><span class="ux-flag" tabindex="0" data-issue="This page repeats the same household and office relocation explanation in multiple sections. Merge overlapping content and keep only distinct, useful details.">About Packers and Movers in Whitefield Oxcel</span></h2>
             <div class="info-block">
                 <p>Oxcel is providing a facility by which you can change your home as well as office to another location. This facility is for those people who want to shift their stuff from one location to another location. It is a type of company that assists people by providing them with the facility of packers and movers in Whitefield so that they can change their location very easily. If you are thinking of shifting your home and office then Oxcel will assist you. They are there to assist a person like you in moving your possessions from one location to another. They accomplish this in a way that has been planned to ensure everything works out smoothly. Relocating to another place can be quite difficult and Oxcel aims to help ease this problem for people.</p>
 
@@ -253,9 +298,9 @@
             <!-- Simplified Process -->
             <h2>Simplified Process</h2>
             <div class="info-block">
-                <p>Oxcel Packers and Movers Whitefield offers a convenient online booking system, which is one of the most searched and trusted services in the city. The system makes booking and tracking very easy by communicating through Whats-app, where simply share the videos of the items to be moved and co will make the checklist and estimate cost. The process is fast and reply will be in 15 minutes. After confirmation customer care handles the booking smoothly. Relocation can be stressful and time-consuming but choosing a professional movers company makes the entire moving process easy, safe and hassle-free. Trained professionals reduce risk of injury and physical strain by handling the stuff. For senior citizens, professionals, student or people leaving alone, professionals movers provide comfort, support and peace of mind making relocation worry-free. Fatshe not only useful for relocation but also ideal for occasions like marriages and parties by safely transporting gifts and decorating items to their destination on time</p>
+                <p>Oxcel Packers and Movers Whitefield offers a convenient online booking system, which is one of the most searched and trusted services in the city. The system makes booking and tracking very easy by communicating through <span class="grammar-flag" tabindex="0" data-correction="Brand spelling: use “WhatsApp.”">Whats-app</span>, where simply share the videos of the items to be moved and <span class="grammar-flag" tabindex="0" data-correction="Likely typo: “co” appears to be intended as “we”; verify in context.">co will make the checklist</span> and estimate cost. The process is fast and reply will be in 15 minutes. After confirmation customer care handles the booking smoothly. Relocation can be stressful and time-consuming but choosing a professional movers company makes the entire moving process easy, safe and hassle-free. Trained professionals reduce risk of injury and physical strain by handling the stuff. For senior citizens, <span class="grammar-flag" tabindex="0" data-correction="Grammar and word choice: pluralize “students” and use “living alone.”">professionals, student or people leaving alone</span>, professionals movers provide comfort, support and peace of mind making relocation worry-free. <span class="grammar-flag" tabindex="0" data-correction="This phrase appears corrupted; the intended meaning is unclear, so rewrite the full sentence.">Fatshe not only useful</span> for relocation but also ideal for occasions like marriages and parties by safely transporting gifts and decorating items to their destination on time</p>
                 <p>Our company has been honored with numerous reviews from our valued customers, we are pleased to share some of the outstanding feedback.</p>
-                <p><em>My item has reached me on time. I liked their services I was planning for a reasonably-priced office shifting and hired Packers and Movers in Whitefield. They reliable service with the use of high end packing materials. Packers and movers in Whitefield are the perfect destinations for easily finding the finest packing and moving. Best experience so far!</em></p>
+                <p><em>My item has reached me on time. I liked their services I was planning for a reasonably-priced office shifting and hired Packers and Movers in Whitefield. <span class="grammar-flag" tabindex="0" data-correction="Grammar: the sentence is missing a verb.">They reliable service</span> with the use of high end packing materials. Packers and movers in Whitefield are the perfect destinations for easily finding the finest packing and moving. Best experience so far!</em></p>
                 <p><em>Economical packers and movers in Marathahalli, check reviews. I was planning to shift your home to Whitefield or to other cities and I hired the reliable and trustworthy packers and movers in Hyderabad their task. We recently started working with platform related to flats for sale in Bangalore to help flat buyers in shifting needs, I recommend this as team for safe and speedy shifting services, so there is no need to worry about anything. SUPERB!</em></p>
             </div>
 
@@ -272,7 +317,7 @@
                         <i class="fas fa-truck-ramp-box"></i>
                         <span>Oxcel Packers Movers</span>
                     </div> -->
-                    <p>Your trusted relocation partner in Pune since 2010. We make shifting stress-free with professional care and transparent pricing.</p>
+                    <p><span class="ux-flag" tabindex="0" data-issue="Location mismatch: this is a Whitefield/Bengaluru page, but the shared tagline says Pune. Replace it with verified Bengaluru-specific wording or a location-neutral tagline.">Your trusted relocation partner in Pune since 2010.</span> We make shifting stress-free with professional care and transparent pricing.</p>
                     <div class="social-links">
                         <a href="/packers-movers-whitefield.html#"><i class="fab fa-facebook-f"></i></a>
                         <a href="/packers-movers-whitefield.html#"><i class="fab fa-instagram"></i></a>
@@ -295,7 +340,7 @@
                 <div class="footer-contact" id="contact">
                     <h4>Contact Info</h4>
                     <ul>
-                        <li><i class="fas fa-map-marker-alt"></i> Pune, Maharashtra, India</li>
+                        <li><span class="ux-flag" tabindex="0" data-issue="Location mismatch: this Bengaluru page footer lists Pune, Maharashtra. Verify and correct the address for this page."><i class="fas fa-map-marker-alt"></i> Pune, Maharashtra, India</span></li>
                         <!--<li><i class="fas fa-phone"></i> <a href="tel:+919876543210">+91 98765 43210</a></li>-->
                         <!--<li><i class="fas fa-envelope"></i> <a href="mailto:info@oxcelpackers.com">info@oxcelpackers.com</a></li>-->
                         <li><i class="fas fa-clock"></i> Open 7 Days, 8 AM - 8 PM</li>
@@ -332,4 +377,55 @@
     <script src="https://oxcel.net/assets/js/main.js"></script>
 
 
+<script>
+(function () {
+  function initReviewTooltips() {
+    var tip = document.getElementById('review-tooltip');
+    if (!tip) {
+      tip = document.createElement('div');
+      tip.id = 'review-tooltip';
+      tip.className = 'review-tooltip';
+      tip.setAttribute('role', 'status');
+      tip.setAttribute('aria-live', 'polite');
+      document.body.appendChild(tip);
+    }
+    var active = null;
+    function show(el) {
+      if (!el || !el.matches('.grammar-flag, .ux-flag')) return;
+      active = el;
+      var isUx = el.classList.contains('ux-flag');
+      var message = isUx ? el.getAttribute('data-issue') : el.getAttribute('data-correction');
+      if (!message) return;
+      tip.textContent = (isUx ? 'UI/UX issue: ' : 'Suggested correction: ') + message;
+      tip.classList.toggle('is-grammar', !isUx);
+      tip.classList.add('is-visible');
+    }
+    function hide(el) {
+      if (!el || active === el) {
+        active = null;
+        tip.classList.remove('is-visible', 'is-grammar');
+        tip.textContent = '';
+      }
+    }
+    document.addEventListener('pointerover', function (event) {
+      var el = event.target.closest && event.target.closest('.grammar-flag, .ux-flag');
+      if (el) show(el);
+    });
+    document.addEventListener('pointerout', function (event) {
+      var el = event.target.closest && event.target.closest('.grammar-flag, .ux-flag');
+      if (el && !el.contains(event.relatedTarget)) hide(el);
+    });
+    document.addEventListener('focusin', function (event) {
+      var el = event.target.closest && event.target.closest('.grammar-flag, .ux-flag');
+      if (el) show(el);
+    });
+    document.addEventListener('focusout', function (event) {
+      var el = event.target.closest && event.target.closest('.grammar-flag, .ux-flag');
+      if (el) hide(el);
+    });
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', initReviewTooltips);
+  else initReviewTooltips();
+})();
+</script>
 </body></html>
