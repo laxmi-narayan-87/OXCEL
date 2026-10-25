@@ -146,3 +146,16 @@
  .home-section-heading{margin-bottom:19px}
  .home-why{padding-top:30px;padding-bottom:32px}
 }
+
+
+/* Prevent page-level horizontal scrolling on desktop and mobile. */
+html, body { max-width: 100%; overflow-x: clip; }
+@supports not (overflow: clip) {
+  html, body { overflow-x: hidden; }
+}
+/* Keep wide content and media inside the viewport. */
+*, *::before, *::after { min-width: 0; }
+img, video, iframe, canvas, svg { max-width: 100%; }
+pre, table { max-width: 100%; }
+pre { overflow-x: auto; }
+table { display: block; overflow-x: auto; }
