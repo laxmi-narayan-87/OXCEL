@@ -3,94 +3,73 @@
 .logo-img { height: 27px; width: auto; display: block; }
 
 .main-nav, .main-nav ul { gap: 10px; }
-/* Grammar review: hover or keyboard-focus a red highlight to see the suggested correction. */
-.grammar-flag {
+/* Review annotations: use a fixed, viewport-aware tooltip layer so parent overflow and stacking contexts cannot clip suggestions. */
+.grammar-flag, .ux-flag {
     position: relative;
+    cursor: help;
+}
+.grammar-flag {
     display: inline;
     color: #111;
     background: #e53935;
     font-weight: 800;
     padding: 0.08em 0.22em;
     border-radius: 3px;
-    cursor: help;
     box-decoration-break: clone;
     -webkit-box-decoration-break: clone;
 }
-.grammar-flag::after {
-    content: "Suggested correction: " attr(data-correction);
-    position: absolute;
-    z-index: 9999;
-    left: 0;
-    bottom: calc(100% + 8px);
-    width: max-content;
-    max-width: min(340px, 85vw);
-    padding: 10px 12px;
-    border: 1px solid #e53935;
-    border-radius: 6px;
+.grammar-flag::after, .ux-flag::after {
+    position: fixed;
+    z-index: 2147483647;
+    left: max(12px, min(50vw, calc(100vw - 352px)));
+    top: 12px;
+    width: min(340px, calc(100vw - 24px));
+    box-sizing: border-box;
+    padding: 12px 14px;
+    border-radius: 8px;
     background: #fff;
     color: #111;
-    font: 600 13px/1.45 Arial, sans-serif;
+    font: 600 13px/1.5 Arial, sans-serif;
     white-space: normal;
-    box-shadow: 0 5px 18px rgba(0,0,0,.22);
+    overflow-wrap: anywhere;
+    box-shadow: 0 8px 28px rgba(0,0,0,.28);
     opacity: 0;
     visibility: hidden;
     pointer-events: none;
-    transition: opacity .15s ease;
+    transition: opacity .12s ease;
 }
-.grammar-flag:hover::after,
-.grammar-flag:focus::after {
-    opacity: 1;
-    visibility: visible;
+.grammar-flag::after {
+    content: "Suggested correction: " attr(data-correction);
+    border: 2px solid #e53935;
 }
-
-
-
-/* UI/UX review annotations: purple outlines mark components to review. */
 .ux-flag {
-    position: relative;
     outline: 2px dashed #7c3aed;
     outline-offset: 3px;
     border-radius: 3px;
-    cursor: help;
 }
 .ux-flag::after {
     content: "UI/UX issue: " attr(data-issue);
-    position: absolute;
-    z-index: 10000;
-    left: 0;
-    top: calc(100% + 8px);
-    width: max-content;
-    max-width: min(340px, 85vw);
-    padding: 10px 12px;
-    border: 1px solid #7c3aed;
-    border-radius: 6px;
-    background: #fff;
-    color: #111;
-    font: 600 13px/1.45 Arial, sans-serif;
-    white-space: normal;
-    box-shadow: 0 5px 18px rgba(0,0,0,.22);
-    opacity: 0;
-    visibility: hidden;
-    pointer-events: none;
-    transition: opacity .15s ease;
+    border: 2px solid #7c3aed;
 }
-.ux-flag:hover::after,
-.ux-flag:focus::after {
+.grammar-flag:hover::after, .grammar-flag:focus::after,
+.ux-flag:hover::after, .ux-flag:focus::after {
     opacity: 1;
     visibility: visible;
 }
 .ux-flag:focus { outline-style: solid; }
-
-/* Footer grammar annotations use the same yellow warning treatment. */
 .site-footer .grammar-flag {
     background: #ffeb3b;
     color: #111;
     font-weight: 800;
 }
-.site-footer .grammar-flag::after {
-    border-color: #d4a900;
+.site-footer .grammar-flag::after { border-color: #d4a900; }
+@media (max-width: 480px) {
+    .grammar-flag::after, .ux-flag::after {
+        left: 12px;
+        top: 12px;
+        width: calc(100vw - 24px);
+    }
 }
-
 </style>
     
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
