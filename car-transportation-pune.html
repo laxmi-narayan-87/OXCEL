@@ -15,6 +15,51 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet">
     <!-- Custom CSS -->
     <link rel="stylesheet" href="assets/css/style.css">
+<style>/* Review annotation styling. Tooltips are rendered in a body-level overlay, not pseudo-elements inside components. */
+.grammar-flag, .ux-flag { position: relative; cursor: help; }
+.grammar-flag {
+  display: inline;
+  color: #111;
+  background: #e53935;
+  font-weight: 800;
+  padding: .08em .22em;
+  border-radius: 3px;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+.ux-flag { outline: 2px dashed #7c3aed; outline-offset: 3px; border-radius: 3px; }
+.ux-flag:focus { outline-style: solid; }
+.site-footer .grammar-flag { background: #ffeb3b; color: #111; font-weight: 800; }
+.review-tooltip {
+  position: fixed !important;
+  z-index: 2147483647 !important;
+  top: 12px !important;
+  right: 12px !important;
+  left: auto !important;
+  width: min(380px, calc(100vw - 24px)) !important;
+  max-height: min(42vh, 280px) !important;
+  overflow: auto !important;
+  box-sizing: border-box !important;
+  padding: 14px 16px !important;
+  border: 2px solid #7c3aed !important;
+  border-radius: 10px !important;
+  background: #fff !important;
+  color: #111 !important;
+  font: 600 14px/1.5 Arial, sans-serif !important;
+  white-space: normal !important;
+  overflow-wrap: anywhere !important;
+  box-shadow: 0 10px 36px rgba(0,0,0,.32) !important;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+.review-tooltip.is-visible { opacity: 1; visibility: visible; }
+.review-tooltip.is-grammar { border-color: #e53935 !important; }
+.site-footer ~ .review-tooltip.is-grammar { border-color: #d4a900 !important; }
+@media (max-width: 480px) {
+  .review-tooltip { top: 8px !important; right: 8px !important; width: calc(100vw - 16px) !important; }
+}
+</style>
 </head>
 
 
@@ -112,7 +157,7 @@
         <div class="info-block">
             <p>With the increasing demand of car transportation in Pune, there is a need of a good packing and moving expertise, who can help deliver the goods to the customer via transportation from the dealer with proper care and management. As any damage to the goods while transporting can lead to the diminishing of the image of the dealer in the eyes of the customer. To avoid such circumstances, we introduce you to Oxcel <a href="/packers-movers-pune.html"> Packers And Movers in Pune </a> , the <a href="/packers-movers-pune.html"> Best Packers And Movers in Pune </a>, which is owned and managed by 4 partners. It is a service led by skilled workmen, who provide door to door service all over India, who can deliver your goods with proper safety and security in less time.</p>
             
-            <p>Oxcel Packers Movers Business Directory is a well managed team of workers who are skilled and very much active. While packing, they verify the complexity of the goods, sometimes, which can be sensitive like electronics items, which must be handled with utmost care as any wrong movement can damage it leading to the loss of the customer. With an experience of more that 20 years, Oxcel provides a personal visit to the dealer as well as home checking from the location, where the goods are to be taken to the destination. They understand the articles which are to be delivered before loading them inside their transports. Proper planning and execution right from packing to loading to car transportation in Pune, Oxcel Packers Movers Business Directory provides to the best quality service. With the roadways being bad at some places, they also make sure to secure and protect your goods with proper care.</p>
+            <p><span class="ux-flag" tabindex="0" data-issue="The page makes broad experience and service-quality claims. Verify claims such as years of experience and ownership before publishing.">Oxcel Packers Movers Business Directory is a well managed team of workers who are skilled and very much active. While packing, they verify the complexity of the goods, sometimes, which can be sensitive like <span class="grammar-flag" tabindex="0" data-correction="Word choice: use “electronic items.”">electronics items</span>, which must be handled with utmost care as any wrong movement can damage it leading to the loss of the customer. With an experience of <span class="grammar-flag" tabindex="0" data-correction="Grammar: “that” should be “than.”">more that 20 years</span>, Oxcel provides a personal visit to the dealer as well as home checking from the location, where the goods are to be taken to the destination. They understand the articles which are to be delivered before <span class="grammar-flag" tabindex="0" data-correction="Wording: “inside their transports” is unnatural.">loading them inside their transports</span>. Proper planning and execution right from packing to loading to car transportation in Pune, Oxcel Packers Movers Business Directory <span class="grammar-flag" tabindex="0" data-correction="Grammar: the original phrase is ungrammatical.">provides to the best quality service</span>. With the roadways being bad at some places, they also make sure to secure and protect your goods with proper care.</p>
             
             <p>Oxcel believes that while packing and moving the goods to various places, they make sure to take all of the necessary information about the goods which makes it easy to deliver it to their potential customers making them the best <a href="/packers-movers-pune.html"> Best Packers And Movers in Pune </a>.</p>
         </div>
@@ -195,4 +240,55 @@
 
     <script src="https://oxcel.net/assets/js/main.js"></script>
 
+<script>
+(function () {
+  function initReviewTooltips() {
+    var tip = document.getElementById('review-tooltip');
+    if (!tip) {
+      tip = document.createElement('div');
+      tip.id = 'review-tooltip';
+      tip.className = 'review-tooltip';
+      tip.setAttribute('role', 'status');
+      tip.setAttribute('aria-live', 'polite');
+      document.body.appendChild(tip);
+    }
+    var active = null;
+    function show(el) {
+      if (!el || !el.matches('.grammar-flag, .ux-flag')) return;
+      active = el;
+      var isUx = el.classList.contains('ux-flag');
+      var message = isUx ? el.getAttribute('data-issue') : el.getAttribute('data-correction');
+      if (!message) return;
+      tip.textContent = (isUx ? 'UI/UX issue: ' : 'Suggested correction: ') + message;
+      tip.classList.toggle('is-grammar', !isUx);
+      tip.classList.add('is-visible');
+    }
+    function hide(el) {
+      if (!el || active === el) {
+        active = null;
+        tip.classList.remove('is-visible', 'is-grammar');
+        tip.textContent = '';
+      }
+    }
+    document.addEventListener('pointerover', function (event) {
+      var el = event.target.closest && event.target.closest('.grammar-flag, .ux-flag');
+      if (el) show(el);
+    });
+    document.addEventListener('pointerout', function (event) {
+      var el = event.target.closest && event.target.closest('.grammar-flag, .ux-flag');
+      if (el && !el.contains(event.relatedTarget)) hide(el);
+    });
+    document.addEventListener('focusin', function (event) {
+      var el = event.target.closest && event.target.closest('.grammar-flag, .ux-flag');
+      if (el) show(el);
+    });
+    document.addEventListener('focusout', function (event) {
+      var el = event.target.closest && event.target.closest('.grammar-flag, .ux-flag');
+      if (el) hide(el);
+    });
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', initReviewTooltips);
+  else initReviewTooltips();
+})();
+</script>
 </body></html>
