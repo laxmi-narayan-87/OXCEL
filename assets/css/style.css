@@ -1178,3 +1178,15 @@ body {
     .content-section > .container { width: calc(100% - 36px); }
     .info-block p { font-size: 16px; line-height: 1.7; }
 }
+
+
+/* Prevent page-level horizontal scrolling across all pages using this stylesheet. */
+html, body { max-width: 100%; overflow-x: clip; }
+@supports not (overflow: clip) {
+  html, body { overflow-x: hidden; }
+}
+*, *::before, *::after { min-width: 0; }
+img, video, iframe, canvas, svg { max-width: 100%; }
+pre, table { max-width: 100%; }
+pre { overflow-x: auto; }
+table { display: block; overflow-x: auto; }
