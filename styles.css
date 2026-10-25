@@ -159,3 +159,41 @@ img, video, iframe, canvas, svg { max-width: 100%; }
 pre, table { max-width: 100%; }
 pre { overflow-x: auto; }
 table { display: block; overflow-x: auto; }
+
+
+/* Responsive scaling fixes: prevent fixed/minimum widths from exceeding the viewport. */
+html { width: 100%; -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+body { width: 100%; min-width: 0; }
+main, header, footer, section, nav, article, aside { min-width: 0; max-width: 100%; }
+.container { width: calc(100% - 32px); max-width: 1160px; }
+.grid, .hero-grid, .page-hero-grid, .split, .contact-grid, .footer-grid,
+.home-hero-grid, .home-service-grid, .home-benefit-grid, .home-footer-grid,
+.form-grid, .trustband .container { min-width: 0; }
+.grid { grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr)); }
+.home-service-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.home-benefit-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.home-footer-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.hero-grid, .page-hero-grid, .split, .contact-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.home-hero-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.home-page .container { width: calc(100% - 32px); }
+.home-hero-image, .hero-art, .page-image, .split-image { min-width: 0; }
+.btn, .home-button { max-width: 100%; white-space: normal; }
+.field input, .field textarea, .field select { max-width: 100%; min-width: 0; }
+@media (max-width: 900px) {
+  .hero-grid, .page-hero-grid, .split, .contact-grid, .home-hero-grid { grid-template-columns: minmax(0, 1fr); }
+  .home-service-grid, .home-benefit-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .home-footer-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .footer-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 600px) {
+  .container, .home-page .container { width: calc(100% - 28px); }
+  .grid, .form-grid, .footer-grid, .home-service-grid, .home-benefit-grid,
+  .home-footer-grid, .trustband .container { grid-template-columns: minmax(0, 1fr); }
+  .hero h1, .page-hero h1, .home-hero-copy h1 { overflow-wrap: anywhere; }
+  .section, .home-services, .home-why { padding-top: 36px; padding-bottom: 36px; }
+  .quote-form, .card, .quote-strip { padding: 20px; }
+  .topbar .container { flex-wrap: wrap; }
+  .footer-bottom, .home-footer-bottom { flex-wrap: wrap; }
+  .home-payments div { flex-wrap: wrap; }
+  .floating-cta { right: 10px; bottom: 10px; max-width: calc(100vw - 20px); }
+}
