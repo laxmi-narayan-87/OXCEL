@@ -1,7 +1,126 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
+<!DOCTYPE html><html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><style rel="stylesheet" type="text/css">@charset "utf-8";
+
+.main-nav, .main-nav ul { gap: 10px; }
+
+.logo-link { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+
+.logo-icon { width: 42px; height: 42px; flex: 0 0 42px; display: flex; align-items: center; justify-content: center; border-radius: 12px; background: linear-gradient(135deg, rgb(26, 43, 73) 0%, rgb(255, 107, 0) 100%); box-shadow: rgba(255, 107, 0, 0.28) 0px 6px 14px; }
+
+.logo-icon svg { width: 26px; height: 26px; display: block; }
+
+.logo-img { height: 27px; width: auto; display: block; }
+
+.hero { background: linear-gradient(135deg, rgb(255, 245, 235) 0%, rgb(255, 255, 255) 100%); padding: 20px 0px; position: relative; overflow: hidden; }
+
+.services { background: var(--light); padding: 20px 0px !important; }
+
+.partners { background: rgb(245, 248, 253); padding: 20px 0px !important; }
+
+@media (max-width: 480px) {
+  .logo-icon { width: 34px; height: 34px; flex: 0 0 34px; border-radius: 10px; }
+  .logo-icon svg { width: 21px; height: 21px; }
+  .logo-img { height: 22px; }
+  .hero-buttons { display: inline-table !important; }
+}
+
+.hero .container { display: flex; flex-wrap: wrap; align-items: center; gap: 40px; }
+
+.hero-content { flex: 1 1 480px; }
+
+.hero-form-box { flex: 1 1 420px; max-width: 520px; margin: auto; }
+
+.oxcel-quote-form { background: linear-gradient(160deg, rgb(26, 43, 73) 0%, rgb(42, 63, 102) 100%); border-radius: 20px; padding: 26px 24px 24px; box-shadow: rgba(16, 30, 54, 0.28) 0px 18px 42px; position: relative; overflow: hidden; }
+
+.oxcel-quote-form::before { content: ""; position: absolute; top: -60px; right: -60px; width: 180px; height: 180px; border-radius: 50%; background: radial-gradient(circle, rgba(255, 107, 0, 0.35) 0%, rgba(255, 107, 0, 0) 70%); pointer-events: none; }
+
+.oxcel-quote-form h2 { color: rgb(255, 255, 255); font-size: 1.28rem; font-weight: 700; text-align: center; margin: 0px 0px 6px; line-height: 1.35; position: relative; z-index: 1; }
+
+.oxcel-quote-form .form-sub { color: rgb(201, 212, 230); font-size: 0.84rem; text-align: center; margin: 0px 0px 18px; position: relative; z-index: 1; }
+
+.oxcel-quote-form form { display: flex; flex-direction: column; gap: 12px; position: relative; z-index: 1; }
+
+.oxcel-quote-form .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+
+.oxcel-quote-form input, .oxcel-quote-form textarea { width: 100%; padding: 13px 15px; font-family: inherit; font-size: 0.92rem; color: rgb(26, 43, 73); background: rgb(255, 255, 255); border: 1px solid rgb(223, 230, 241); border-radius: 10px; outline: none; transition: border-color 0.22s, box-shadow 0.22s; }
+
+.oxcel-quote-form input::placeholder, .oxcel-quote-form textarea::placeholder { color: rgb(151, 163, 184); font-style: italic; }
+
+.oxcel-quote-form input:focus, .oxcel-quote-form textarea:focus { border-color: rgb(255, 107, 0); box-shadow: rgba(255, 107, 0, 0.18) 0px 0px 0px 3px; }
+
+.oxcel-quote-form textarea { resize: vertical; min-height: 62px; }
+
+.oxcel-quote-form .btn-submit { margin-top: 6px; padding: 14px 20px; font-family: inherit; font-size: 1rem; font-weight: 700; letter-spacing: 0.3px; color: rgb(26, 43, 73); background: rgb(255, 193, 7); border-width: medium; border-style: none; border-color: currentcolor; border-image: none; border-radius: 12px; cursor: pointer; transition: transform 0.18s, box-shadow 0.18s, background 0.18s; box-shadow: rgba(255, 193, 7, 0.35) 0px 8px 18px; }
+
+.oxcel-quote-form .btn-submit:hover { background: rgb(255, 179, 0); transform: translateY(-2px); box-shadow: rgba(255, 193, 7, 0.45) 0px 12px 24px; }
+
+.oxcel-quote-form .btn-submit:active { transform: translateY(0px); }
+
+.partners { padding: 70px 0px; background: rgb(245, 248, 253); }
+
+.partners-grid { display: flex; gap: 20px; overflow: auto hidden; scroll-snap-type: x mandatory; padding: 10px 4px 22px; scrollbar-width: thin; scrollbar-color: rgb(255, 107, 0) rgb(229, 234, 243); }
+
+.partners-grid::-webkit-scrollbar { height: 8px; }
+
+.partners-grid::-webkit-scrollbar-track { background: rgb(229, 234, 243); border-radius: 10px; }
+
+.partners-grid::-webkit-scrollbar-thumb { background: rgb(255, 107, 0); border-radius: 10px; }
+
+.partners-grid::-webkit-scrollbar-thumb:hover { background: rgb(230, 95, 0); }
+
+.partner-card { flex: 0 0 auto; width: 290px; scroll-snap-align: start; background: rgb(255, 255, 255); border-radius: 18px; overflow: hidden; display: flex; flex-direction: column; align-items: center; text-align: center; padding-bottom: 18px; box-shadow: rgba(16, 30, 54, 0.08) 0px 8px 24px; transition: transform 0.3s, box-shadow 0.3s, opacity 0.35s; }
+
+.partner-card:hover { transform: translateY(-6px); box-shadow: rgba(16, 30, 54, 0.16) 0px 16px 34px; }
+
+.partner-photo { width: 100%; height: 160px; position: relative; display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, rgb(26, 43, 73) 0%, rgb(255, 107, 0) 100%); }
+
+.partner-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+.partner-photo img.img-missing { display: none; }
+
+.partner-photo .photo-fallback { display: none; font-size: 46px; color: rgb(255, 255, 255); }
+
+.partner-photo img.img-missing ~ .photo-fallback { display: flex; }
+
+.partner-name { margin: 16px 14px 2px; font-size: 1.02rem; font-weight: 600; color: rgb(26, 43, 73); line-height: 1.35; min-height: 2.7em; display: flex; align-items: center; justify-content: center; }
+
+.partner-sub { font-size: 0.76rem; color: rgb(138, 151, 171); margin: 0px 14px 8px; font-style: italic; }
+
+.partner-phone { color: rgb(91, 107, 130); font-size: 0.9rem; margin-bottom: 14px; line-height: 1.6; }
+
+.partner-phone span { display: block; }
+
+.partner-phone i { color: rgb(255, 107, 0); margin-right: 4px; }
+
+.partner-phone .wa-ico { color: rgb(37, 211, 102); }
+
+.partner-actions { display: flex; gap: 10px; width: 100%; padding: 0px 16px; }
+
+.partner-actions a { flex: 1 1 0%; padding: 10px 6px; border-radius: 10px; font-size: 0.84rem; font-weight: 600; text-decoration: none; display: flex; align-items: center; justify-content: center; gap: 6px; transition: filter 0.25s; }
+
+.partner-actions a:hover { filter: brightness(1.1); }
+
+.btn-call { background: rgb(26, 43, 73); color: rgb(255, 255, 255); }
+
+.btn-wa { background: rgb(37, 211, 102); color: rgb(255, 255, 255); }
+
+@media (max-width: 991px) {
+  .hero .container { flex-direction: column; gap: 30px; }
+  .hero-content, .hero-form-box { flex: 1 1 100%; max-width: 100%; margin-left: 0px; }
+  .hero-form-box { width: 100%; }
+}
+
+@media (max-width: 640px) {
+  .partner-card { width: 255px; }
+  .partner-photo { height: 145px; }
+}
+
+@media (max-width: 520px) {
+  .oxcel-quote-form { padding: 22px 18px 20px; border-radius: 16px; }
+  .oxcel-quote-form h2 { font-size: 1.12rem; }
+  .oxcel-quote-form input, .oxcel-quote-form textarea { padding: 12px 13px; font-size: 0.88rem; }
+  .oxcel-quote-form .form-row { grid-template-columns: 1fr; }
+}</style>
+    
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>Oxcel Packers and Movers in Pune Home Shifting Services</title>
     <meta name="description" content="Oxcel Packers and Movers in Pune Home Shifting Services - Professional packing, moving, and relocation services in Pune. Free quotes, 4.8★ rating, 7 days open.">
@@ -10,10 +129,10 @@
     <!-- Font Awesome 6 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet">
     <!-- Custom CSS -->
     <link rel="stylesheet" href="https://oxcel.net/assets/css/style.css">
-    <link rel="canonical" href="https://oxcel-one.vercel.app/packers-movers-pune.html">
+    <link rel="canonical" href="https://oxcel.net/packers-movers-pune.php">
     
     <!-- ================= GOOGLE RICH SNIPPET SCHEMA ================= -->
 <script type="application/ld+json">
@@ -22,7 +141,7 @@
   "@type": "MovingCompany",
   "name": "Oxcel Packers and Movers in Pune",
   "alternateName": "Oxcel Packers Movers Business Directory",
-  "url": "https://oxcel-one.vercel.app/packers-movers-pune.html",
+  "url": "https://oxcel.net/packers-movers-pune.php",
   "image": "https://oxcel.net/logon.png",
   "logo": "https://oxcel.net/logon.png",
   "description": "Professional packers and movers in Pune offering home shifting, office relocation, car & bike transportation, packing, loading, unloading, warehousing and transit insurance services. Free quotes, 7 days open.",
@@ -120,347 +239,13 @@
       "@type": "ListItem",
       "position": 2,
       "name": "Packers and Movers in Pune",
-      "item": "https://oxcel-one.vercel.app/packers-movers-pune.html"
+      "item": "https://oxcel.net/packers-movers-pune.php"
     }
   ]
 }
 </script>
     
-    <style>
-        .main-nav , .main-nav ul{
-            gap: 10px;
-        }
-
-        /* ================= LOGO ICON ================= */
-        .logo-link{
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            text-decoration: none;
-        }
-        .logo-icon{
-            width: 42px;
-            height: 42px;
-            flex: 0 0 42px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 12px;
-            background: linear-gradient(135deg, #1a2b49 0%, #ff6b00 100%);
-            box-shadow: 0 6px 14px rgba(255,107,0,.28);
-        }
-        .logo-icon svg{
-            width: 26px;
-            height: 26px;
-            display: block;
-        }
-        .logo-img{
-            height: 27px;
-            width: auto;
-            display: block;
-        }
-        .hero {
-    background: linear-gradient(135deg, #fff5eb 0%, #ffffff 100%);
-    padding: 20px 0 20px;
-    position: relative;
-    overflow: hidden;
-}
-.services {
-    padding: 20px 0 !important;
-    background: var(--light);
-}.partners {
-    padding: 20px 0 !important;
-    background: #f5f8fd;
-}
-
-        @media (max-width: 480px){
-            .logo-icon{ width: 34px; height: 34px; flex: 0 0 34px; border-radius: 10px; }
-            .logo-icon svg{ width: 21px; height: 21px; }
-            .logo-img{ height: 22px; }
-            .hero-buttons{display:inline-table !important;}
-        }
-
-        /* ================= HERO WITH QUOTE FORM ================= */
-        .hero .container{
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-            gap: 40px;
-        }
-        .hero-content{
-            flex: 1 1 480px;
-        }
-        .hero-form-box{
-            flex: 1 1 420px;
-            max-width: 520px;
-            margin: auto;
-        }
-
-        /* ===== QUOTATION FORM ===== */
-        .oxcel-quote-form{
-            background: linear-gradient(160deg, #1a2b49 0%, #2a3f66 100%);
-            border-radius: 20px;
-            padding: 26px 24px 24px;
-            box-shadow: 0 18px 42px rgba(16,30,54,.28);
-            position: relative;
-            overflow: hidden;
-        }
-        .oxcel-quote-form::before{
-            content: "";
-            position: absolute;
-            top: -60px; right: -60px;
-            width: 180px; height: 180px;
-            border-radius: 50%;
-            background: radial-gradient(circle, rgba(255,107,0,.35) 0%, rgba(255,107,0,0) 70%);
-            pointer-events: none;
-        }
-        .oxcel-quote-form h2{
-            color: #fff;
-            font-size: 1.28rem;
-            font-weight: 700;
-            text-align: center;
-            margin: 0 0 6px;
-            line-height: 1.35;
-            position: relative;
-            z-index: 1;
-        }
-        .oxcel-quote-form .form-sub{
-            color: #c9d4e6;
-            font-size: .84rem;
-            text-align: center;
-            margin: 0 0 18px;
-            position: relative;
-            z-index: 1;
-        }
-        .oxcel-quote-form form{
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-            position: relative;
-            z-index: 1;
-        }
-        /* ===== 2 FIELD PER ROW ===== */
-        .oxcel-quote-form .form-row{
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 12px;
-        }
-        .oxcel-quote-form input,
-        .oxcel-quote-form textarea{
-            width: 100%;
-            padding: 13px 15px;
-            font-family: inherit;
-            font-size: .92rem;
-            color: #1a2b49;
-            background: #fff;
-            border: 1px solid #dfe6f1;
-            border-radius: 10px;
-            outline: none;
-            transition: border-color .22s ease, box-shadow .22s ease;
-        }
-        .oxcel-quote-form input::placeholder,
-        .oxcel-quote-form textarea::placeholder{
-            color: #97a3b8;
-            font-style: italic;
-        }
-        .oxcel-quote-form input:focus,
-        .oxcel-quote-form textarea:focus{
-            border-color: #ff6b00;
-            box-shadow: 0 0 0 3px rgba(255,107,0,.18);
-        }
-        .oxcel-quote-form textarea{
-            resize: vertical;
-            min-height: 62px;
-        }
-        .oxcel-quote-form .btn-submit{
-            margin-top: 6px;
-            padding: 14px 20px;
-            font-family: inherit;
-            font-size: 1rem;
-            font-weight: 700;
-            letter-spacing: .3px;
-            color: #1a2b49;
-            background: #ffc107;
-            border: none;
-            border-radius: 12px;
-            cursor: pointer;
-            transition: transform .18s ease, box-shadow .18s ease, background .18s ease;
-            box-shadow: 0 8px 18px rgba(255,193,7,.35);
-        }
-        .oxcel-quote-form .btn-submit:hover{
-            background: #ffb300;
-            transform: translateY(-2px);
-            box-shadow: 0 12px 24px rgba(255,193,7,.45);
-        }
-        .oxcel-quote-form .btn-submit:active{
-            transform: translateY(0);
-        }
-
-        /* ================= PARTNERS / SCROLL + ROTATE ================= */
-        .partners{
-            padding: 70px 0;
-            background: #f5f8fd;
-        }
-        .partners-grid{
-            display: flex;
-            gap: 20px;
-            overflow-x: auto;
-            overflow-y: hidden;
-            scroll-snap-type: x mandatory;
-            -webkit-overflow-scrolling: touch;
-            padding: 10px 4px 22px;   /* room for shadow + scrollbar */
-            scrollbar-width: thin;
-            scrollbar-color: #ff6b00 #e5eaf3;
-        }
-        .partners-grid::-webkit-scrollbar{
-            height: 8px;
-        }
-        .partners-grid::-webkit-scrollbar-track{
-            background: #e5eaf3;
-            border-radius: 10px;
-        }
-        .partners-grid::-webkit-scrollbar-thumb{
-            background: #ff6b00;
-            border-radius: 10px;
-        }
-        .partners-grid::-webkit-scrollbar-thumb:hover{
-            background: #e65f00;
-        }
-
-        .partner-card{
-            flex: 0 0 auto;
-            width: 290px;
-            scroll-snap-align: start;
-            background: #fff;
-            border-radius: 18px;
-            overflow: hidden;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-            padding-bottom: 18px;
-            box-shadow: 0 8px 24px rgba(16,30,54,.08);
-            transition: transform .3s ease, box-shadow .3s ease, opacity .35s ease;
-        }
-        .partner-card:hover{
-            transform: translateY(-6px);
-            box-shadow: 0 16px 34px rgba(16,30,54,.16);
-        }
-
-        .partner-photo{
-            width: 100%;
-            height: 160px;
-            position: relative;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: linear-gradient(135deg, #1a2b49 0%, #ff6b00 100%);
-        }
-        .partner-photo img{
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-        }
-        .partner-photo img.img-missing{ display: none; }
-        .partner-photo .photo-fallback{
-            display: none;
-            font-size: 46px;
-            color: #fff;
-        }
-        .partner-photo img.img-missing ~ .photo-fallback{ display: flex; }
-
-        .partner-name{
-            margin: 16px 14px 2px;
-            font-size: 1.02rem;
-            font-weight: 600;
-            color: #1a2b49;
-            line-height: 1.35;
-            min-height: 2.7em;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        .partner-sub{
-            font-size: .76rem;
-            color: #8a97ab;
-            margin: 0 14px 8px;
-            font-style: italic;
-        }
-        .partner-phone{
-            color: #5b6b82;
-            font-size: .9rem;
-            margin-bottom: 14px;
-            line-height: 1.6;
-        }
-        .partner-phone span{
-            display: block;
-        }
-        .partner-phone i{
-            color: #ff6b00;
-            margin-right: 4px;
-        }
-        .partner-phone .wa-ico{
-            color: #25d366;
-        }
-
-        .partner-actions{
-            display: flex;
-            gap: 10px;
-            width: 100%;
-            padding: 0 16px;
-        }
-        .partner-actions a{
-            flex: 1;
-            padding: 10px 6px;
-            border-radius: 10px;
-            font-size: .84rem;
-            font-weight: 600;
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 6px;
-            transition: filter .25s ease;
-        }
-        .partner-actions a:hover{ filter: brightness(1.1); }
-        .btn-call{ background: #1a2b49; color: #fff; }
-        .btn-wa{ background: #25d366; color: #fff; }
-
-        /* ================= MOBILE ================= */
-        @media (max-width: 991px){
-            .hero .container{
-                flex-direction: column;
-                gap: 30px;
-            }
-            .hero-content,
-            .hero-form-box{
-                flex: 1 1 100%;
-                max-width: 100%;
-                margin-left: 0;
-            }
-            .hero-form-box{
-                width: 100%;
-            }
-        }
-        @media (max-width: 640px){
-            .partner-card{ width: 255px; }
-            .partner-photo{ height: 145px; }
-        }
-        @media (max-width: 520px){
-            .oxcel-quote-form{
-                padding: 22px 18px 20px;
-                border-radius: 16px;
-            }
-            .oxcel-quote-form h2{ font-size: 1.12rem; }
-            .oxcel-quote-form input,
-            .oxcel-quote-form textarea{ padding: 12px 13px; font-size: .88rem; }
-            /* mobile par 1 field per row */
-            .oxcel-quote-form .form-row{
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
+    
 
 </head>
 
@@ -470,7 +255,7 @@
         <div class="container">
             <div class="logo-area">
                 <div class="logo">
-                    <a href="index.html" class="logo-link">
+                    <a href="https://oxcel.net/index.php" class="logo-link">
                         <!-- 1) LOGO ICON -->
                         <img src="https://oxcel.net/logon.png" alt="Oxcel Packers Movers Business Directory" class="logo-img">
                     </a>
@@ -481,13 +266,13 @@
             </button>
             <nav class="main-nav" id="mainNav">
                 <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="packers-movers-pune.html">Packers Movers Pune</a></li>
-                    <li><a href="car-transportation-pune.html">Car Transport</a></li>
-                    <li><a href="bike-transportation-pune.html">Bike Transport</a></li>
-                    <li><a href="packers-and-movers-marathahalli.html">Bangalore Marathahalli</a></li>
-                    <li><a href="packers-movers-whitefield.html">Bangalore Whitefield</a></li>
-                    <li><a href="contactus.html">Contact Us</a></li>
+                    <li><a href="https://oxcel.net/index.php">Home</a></li>
+                    <li><a href="https://oxcel.net/packers-movers-pune.php">Packers Movers Pune</a></li>
+                    <li><a href="https://oxcel.net/car-transportation-pune.php">Car Transport</a></li>
+                    <li><a href="https://oxcel.net/bike-transportation-pune.php">Bike Transport</a></li>
+                    <li><a href="https://oxcel.net/packers-and-movers-marathahalli.php">Bangalore Marathahalli</a></li>
+                    <li><a href="https://oxcel.net/packers-movers-whitefield.php">Bangalore Whitefield</a></li>
+                    <li><a href="https://oxcel.net/contactus.php">Contact Us</a></li>
                 </ul>
                 <!--<div class="nav-cta">-->
                 <!--    <a href="tel:+919876543210" class="btn-small"><i class="fas fa-phone"></i> Call Now</a>-->
@@ -507,18 +292,17 @@
                 <h2>For Quotation Fill Your Shifting Details</h2>
                 <p class="form-sub">Quick response • No obligation • Best price guarantee</p>
 
-                <form action="send-quote.php" method="POST" autocomplete="on">
+                <form action="https://oxcel.net/send-quote.php" method="POST" autocomplete="on">
                     <!-- Row 1: Name | Mobile -->
                     <div class="form-row">
-                        <input type="text" name="name" placeholder="Name" required>
-                        <input type="tel"  name="mobile" placeholder="Mobile" pattern="[0-9+\-\s]{7,15}" required>
+                        <input type="text" name="name" placeholder="Name" required="">
+                        <input type="tel" name="mobile" placeholder="Mobile" pattern="[0-9+\-\s]{7,15}" required="">
                     </div>
 
                     <!-- Row 2: Email | Date of Shifting -->
                     <div class="form-row">
                         <input type="email" name="email" placeholder="Email">
-                        <input type="text"  name="shift_date" placeholder="Date of Shifting"
-                               onfocus="this.type='date'" onblur="if(!this.value)this.type='text'">
+                        <input type="text" name="shift_date" placeholder="Date of Shifting">
                     </div>
 
                     <!-- Row 3: Shifting From Address -->
@@ -540,79 +324,7 @@
         <div class="partners-grid" id="partnersGrid">
                         <div class="partner-card">
                 <div class="partner-photo">
-                    <img src="https://oxcel.net/dsl.png"
-                         alt="DSL Express Packers And Movers Pvt Ltd"
-                         loading="lazy"
-                         onerror="this.classList.add('img-missing');">
-                    <span class="photo-fallback"><i class="fas fa-truck-moving"></i></span>
-                </div>
-                <h3 class="partner-name">DSL Express Packers And Movers Pvt Ltd</h3>
-                                <div class="partner-phone">
-                    <span><i class="fas fa-phone-alt"></i> 9881715755</span>
-                    <span><i class="fab fa-whatsapp wa-ico"></i> 9822377955</span>
-                </div>
-                <div class="partner-actions">
-                    <a href="tel:9881715755" class="btn-call">
-                        <i class="fas fa-phone"></i> Call
-                    </a>
-                    <a href="https://wa.me/919822377955"
-                       target="_blank" rel="noopener" class="btn-wa">
-                        <i class="fab fa-whatsapp"></i> WhatsApp
-                    </a>
-                </div>
-            </div>
-                        <div class="partner-card">
-                <div class="partner-photo">
-                    <img src="https://oxcel.net/max.png"
-                         alt="Maxx Packers &amp; Movers"
-                         loading="lazy"
-                         onerror="this.classList.add('img-missing');">
-                    <span class="photo-fallback"><i class="fas fa-truck-moving"></i></span>
-                </div>
-                <h3 class="partner-name">Maxx Packers &amp; Movers</h3>
-                                <div class="partner-phone">
-                    <span><i class="fas fa-phone-alt"></i> 9607255002</span>
-                    <span><i class="fab fa-whatsapp wa-ico"></i> 9607255002</span>
-                </div>
-                <div class="partner-actions">
-                    <a href="tel:9607255002" class="btn-call">
-                        <i class="fas fa-phone"></i> Call
-                    </a>
-                    <a href="https://wa.me/919607255002"
-                       target="_blank" rel="noopener" class="btn-wa">
-                        <i class="fab fa-whatsapp"></i> WhatsApp
-                    </a>
-                </div>
-            </div>
-                        <div class="partner-card">
-                <div class="partner-photo">
-                    <img src="https://oxcel.net/dtc.png"
-                         alt="DTC Express Packers And Movers"
-                         loading="lazy"
-                         onerror="this.classList.add('img-missing');">
-                    <span class="photo-fallback"><i class="fas fa-truck-moving"></i></span>
-                </div>
-                <h3 class="partner-name">DTC Express Packers And Movers</h3>
-                                <div class="partner-phone">
-                    <span><i class="fas fa-phone-alt"></i> 9050667955</span>
-                    <span><i class="fab fa-whatsapp wa-ico"></i> 9050905205</span>
-                </div>
-                <div class="partner-actions">
-                    <a href="tel:9050667955" class="btn-call">
-                        <i class="fas fa-phone"></i> Call
-                    </a>
-                    <a href="https://wa.me/919050905205"
-                       target="_blank" rel="noopener" class="btn-wa">
-                        <i class="fab fa-whatsapp"></i> WhatsApp
-                    </a>
-                </div>
-            </div>
-                        <div class="partner-card">
-                <div class="partner-photo">
-                    <img src="https://oxcel.net/south.png"
-                         alt="South Cargo Packers And Movers (Regd)"
-                         loading="lazy"
-                         onerror="this.classList.add('img-missing');">
+                    <img src="https://oxcel.net/south.png" alt="South Cargo Packers And Movers (Regd)" loading="lazy">
                     <span class="photo-fallback"><i class="fas fa-truck-moving"></i></span>
                 </div>
                 <h3 class="partner-name">South Cargo Packers And Movers (Regd)</h3>
@@ -625,8 +337,64 @@
                     <a href="tel:9326674001" class="btn-call">
                         <i class="fas fa-phone"></i> Call
                     </a>
-                    <a href="https://wa.me/919326674001"
-                       target="_blank" rel="noopener" class="btn-wa">
+                    <a href="https://wa.me/919326674001" target="_blank" rel="noopener" class="btn-wa">
+                        <i class="fab fa-whatsapp"></i> WhatsApp
+                    </a>
+                </div>
+            </div>
+                        <div class="partner-card">
+                <div class="partner-photo">
+                    <img src="https://oxcel.net/dtc.png" alt="DTC Express Packers And Movers" loading="lazy">
+                    <span class="photo-fallback"><i class="fas fa-truck-moving"></i></span>
+                </div>
+                <h3 class="partner-name">DTC Express Packers And Movers</h3>
+                                <div class="partner-phone">
+                    <span><i class="fas fa-phone-alt"></i> 9050667955</span>
+                    <span><i class="fab fa-whatsapp wa-ico"></i> 9050905205</span>
+                </div>
+                <div class="partner-actions">
+                    <a href="tel:9050667955" class="btn-call">
+                        <i class="fas fa-phone"></i> Call
+                    </a>
+                    <a href="https://wa.me/919050905205" target="_blank" rel="noopener" class="btn-wa">
+                        <i class="fab fa-whatsapp"></i> WhatsApp
+                    </a>
+                </div>
+            </div>
+                        <div class="partner-card">
+                <div class="partner-photo">
+                    <img src="https://oxcel.net/max.png" alt="Maxx Packers &amp; Movers" loading="lazy">
+                    <span class="photo-fallback"><i class="fas fa-truck-moving"></i></span>
+                </div>
+                <h3 class="partner-name">Maxx Packers &amp; Movers</h3>
+                                <div class="partner-phone">
+                    <span><i class="fas fa-phone-alt"></i> 9607255002</span>
+                    <span><i class="fab fa-whatsapp wa-ico"></i> 9607255002</span>
+                </div>
+                <div class="partner-actions">
+                    <a href="tel:9607255002" class="btn-call">
+                        <i class="fas fa-phone"></i> Call
+                    </a>
+                    <a href="https://wa.me/919607255002" target="_blank" rel="noopener" class="btn-wa">
+                        <i class="fab fa-whatsapp"></i> WhatsApp
+                    </a>
+                </div>
+            </div>
+                        <div class="partner-card">
+                <div class="partner-photo">
+                    <img src="https://oxcel.net/dsl.png" alt="DSL Express Packers And Movers Pvt Ltd" loading="lazy">
+                    <span class="photo-fallback"><i class="fas fa-truck-moving"></i></span>
+                </div>
+                <h3 class="partner-name">DSL Express Packers And Movers Pvt Ltd</h3>
+                                <div class="partner-phone">
+                    <span><i class="fas fa-phone-alt"></i> 9881715755</span>
+                    <span><i class="fab fa-whatsapp wa-ico"></i> 9822377955</span>
+                </div>
+                <div class="partner-actions">
+                    <a href="tel:9881715755" class="btn-call">
+                        <i class="fas fa-phone"></i> Call
+                    </a>
+                    <a href="https://wa.me/919822377955" target="_blank" rel="noopener" class="btn-wa">
                         <i class="fab fa-whatsapp"></i> WhatsApp
                     </a>
                 </div>
@@ -668,13 +436,13 @@
             <p>Relocating can be overwhelming, but partnering with a genuine, professional moving company like Packers and Movers in Pune transforms the experience entirely.</p>
             <p>Here's why choosing real experts makes all the difference:</p>
             <ul>
-                <li><strong>Professional Expertise & Skilled Labour</strong> – Actual packers and movers in Pune engage skilled labour exclusively trained for relocation, bringing expertise in packing strategy, material selection, and careful handling especially for sensitive items like LCD/LED TVs, imported furniture, and high-end home appliances.</li>
-                <li><strong>Safety & Damage Protection</strong> – Your valuables are treated with the utmost care, and goods transportation insurance is provided when relocating from one place to another giving you real peace of mind.</li>
+                <li><strong>Professional Expertise &amp; Skilled Labour</strong> – Actual packers and movers in Pune engage skilled labour exclusively trained for relocation, bringing expertise in packing strategy, material selection, and careful handling especially for sensitive items like LCD/LED TVs, imported furniture, and high-end home appliances.</li>
+                <li><strong>Safety &amp; Damage Protection</strong> – Your valuables are treated with the utmost care, and goods transportation insurance is provided when relocating from one place to another giving you real peace of mind.</li>
                 <li><strong>End-to-End Services</strong> – Professional movers offer comprehensive services including packing, loading, unloading, unpacking, rearranging, warehousing, vehicle transportation, and even international relocation all under one roof.</li>
-                <li><strong>Transparent Pricing & Documentation</strong> – Reputed companies ensure there are no hidden charges, provide proper documentation, and issue return memos for delivery status and agreed commercials.</li>
-                <li><strong>Real-Time Tracking & Digital Convenience</strong> – Online applications allow customers to track movers location by location, with bills generated on the spot and online receipts issued instantly.</li>
-                <li><strong>Written Assurance & Accountability</strong> – You receive a written assurance that items will be delivered on time, and in the event of a delay, the customer has the right to seek compensation.</li>
-                <li><strong>Time & Stress Savings</strong> – With a reputable moving company handling everything, you save a large amount of time and effort, with no need to worry about anything linked to your relocation.</li>
+                <li><strong>Transparent Pricing &amp; Documentation</strong> – Reputed companies ensure there are no hidden charges, provide proper documentation, and issue return memos for delivery status and agreed commercials.</li>
+                <li><strong>Real-Time Tracking &amp; Digital Convenience</strong> – Online applications allow customers to track movers location by location, with bills generated on the spot and online receipts issued instantly.</li>
+                <li><strong>Written Assurance &amp; Accountability</strong> – You receive a written assurance that items will be delivered on time, and in the event of a delay, the customer has the right to seek compensation.</li>
+                <li><strong>Time &amp; Stress Savings</strong> – With a reputable moving company handling everything, you save a large amount of time and effort, with no need to worry about anything linked to your relocation.</li>
             </ul>
             <p>Choosing verified Packers and Movers in Pune ensures a smooth, secure, and stress-free</p>
         </div>
@@ -697,7 +465,7 @@
             <p>Established in 2019, has emerged as a trusted player in India's highly competitive relocation and logistics industry. Operating initially as a service provider packers and movers in Pune the company has strategically expanded its footprint to key metropolitan hubs including Hyderabad, Bangalore, Mumbai, Pune, Ahmedabad, Gurgaon, and Noida. With a lean organizational structure of 11-25 employees, the company delivers specialized relocation services across individual, family, group, and corporate segments.</p>
             <p>The company distinguishes itself through service innovation, offering value-added services including settling-in assistance, post-move analysis, complete office installation, area orientation tours, and international expense management. With positive customer ratings across multiple platforms and specific service excellence in intra-city Pune relocations and long-distance interstate moves, the company is well-positioned to capitalize on the growing relocation demand in India, which is expanding at a robust 12-15% annually.</p>
 
-            <h3>Section 1: Company Background & History</h3>
+            <h3>Section 1: Company Background &amp; History</h3>
             <p><strong>1.1 Founder(s) and Year of Establishment</strong><br>
                 Oxcel Packers and Movers was founded in 2019 as a proprietorship service provider based in Pune. According to official records, reflecting its operation as a lean and agile service provider. The company has been an IndiaMART member since August 2025, indicating a consistent presence in the Indian relocation industry for nearly two decades.<br>
                 While specific founder names are not publicly disclosed, leadership appears to be driven by a dedicated team of managers at various branch locations This distributed leadership structure empowers local managers to make quick, context-appropriate decisions while maintaining centralized<br>
@@ -843,16 +611,16 @@
                     </div> -->
                     <p>Your trusted relocation partner in Pune since 2010. We make shifting stress-free with professional care and transparent pricing.</p>
                     <div class="social-links">
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://oxcel.net/packers-movers-pune.php#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://oxcel.net/packers-movers-pune.php#"><i class="fab fa-instagram"></i></a>
+                        <a href="https://oxcel.net/packers-movers-pune.php#"><i class="fab fa-twitter"></i></a>
+                        <a href="https://oxcel.net/packers-movers-pune.php#"><i class="fab fa-linkedin-in"></i></a>
                     </div>
                 </div>
                 
                 <!-- Partner Packers and Movers Companies Section -->
                 <div class="footer-links">
-                    <h4>Trusted Packers & Movers in Pune</h4><br>
+                    <h4>Trusted Packers &amp; Movers in Pune</h4><br>
                     <ul class="partner-list">
                         <li><i class="fas fa-building"></i>Mr. Pradeep Sharma | <a href="tel:9371666001">9371666001</a></li>
                         <li><i class="fas fa-building"></i> Mr Monu Sharma | <a href="tel:9607255002">9607255002</a></li>
@@ -885,7 +653,7 @@
             </div>
             <div class="footer-bottom">
                 <div class="copyright">
-                    &copy; 2026 Oxcel Packers Movers Business Directory. All rights reserved.
+                    © 2026 Oxcel Packers Movers Business Directory. All rights reserved.
                 </div>
                 <div class="footer-badge">
                     <span><i class="fas fa-star"></i> 4.8★ Rated</span>
@@ -899,5 +667,5 @@
     </footer>
 
     <script src="https://oxcel.net/assets/js/main.js"></script>
-</body>
-</html>
+
+</body></html>
