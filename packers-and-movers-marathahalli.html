@@ -15,6 +15,51 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet">
     <!-- Custom CSS -->
     <link rel="stylesheet" href="assets/css/style.css">
+<style>/* Review annotation styling. Tooltips are rendered in a body-level overlay, not pseudo-elements inside components. */
+.grammar-flag, .ux-flag { position: relative; cursor: help; }
+.grammar-flag {
+  display: inline;
+  color: #111;
+  background: #e53935;
+  font-weight: 800;
+  padding: .08em .22em;
+  border-radius: 3px;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+.ux-flag { outline: 2px dashed #7c3aed; outline-offset: 3px; border-radius: 3px; }
+.ux-flag:focus { outline-style: solid; }
+.site-footer .grammar-flag { background: #ffeb3b; color: #111; font-weight: 800; }
+.review-tooltip {
+  position: fixed !important;
+  z-index: 2147483647 !important;
+  top: 12px !important;
+  right: 12px !important;
+  left: auto !important;
+  width: min(380px, calc(100vw - 24px)) !important;
+  max-height: min(42vh, 280px) !important;
+  overflow: auto !important;
+  box-sizing: border-box !important;
+  padding: 14px 16px !important;
+  border: 2px solid #7c3aed !important;
+  border-radius: 10px !important;
+  background: #fff !important;
+  color: #111 !important;
+  font: 600 14px/1.5 Arial, sans-serif !important;
+  white-space: normal !important;
+  overflow-wrap: anywhere !important;
+  box-shadow: 0 10px 36px rgba(0,0,0,.32) !important;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+.review-tooltip.is-visible { opacity: 1; visibility: visible; }
+.review-tooltip.is-grammar { border-color: #e53935 !important; }
+.site-footer ~ .review-tooltip.is-grammar { border-color: #d4a900 !important; }
+@media (max-width: 480px) {
+  .review-tooltip { top: 8px !important; right: 8px !important; width: calc(100vw - 16px) !important; }
+}
+</style>
 </head>
 
 
@@ -144,7 +189,7 @@
             <p>Oxcel movers receive mixed reviews online. Some users report smooth and professional relocation experiences with careful packing and timely delivery, noting that teams use quality packing materials and secure transport.</p>
             <p><strong>Some Example Reviews:</strong></p>
             <p>· I was planning to shift your home from Marathahalli or to other cities and I hired the reliable and trustworthy packers and movers in their task. I recommend this as team for safe and speedy shifting services, so there is no need to worry about anything. SUPERB!</p>
-            <p>· Recently, I was planning for a reasonably-priced office shifting and hired Packers and Movers in Marathahalli. They reliable service with the use of high-end packing materials. Oxcel packers and movers in Marathahalli are the perfect destinations for easily finding the finest packing and moving. Best experience so far!</p>
+            <p>· Recently, I was planning for a reasonably-priced office shifting and hired Packers and Movers in Marathahalli. <span class="grammar-flag" tabindex="0" data-correction="Grammar: the sentence is missing a verb.">They reliable service</span> with the use of high-end packing materials. Oxcel packers and movers in Marathahalli are the perfect destinations for easily finding the finest packing and moving. Best experience so far!</p>
             <p>As with any relocation service, it's advisable to check each individual mover's reputation, verify pricing details upfront, and read recent reviews before confirming your booking. This due diligence helps ensure you get the best possible service for your move.</p>
         </div>
 
@@ -246,10 +291,10 @@
 
         <!-- Final Summary -->
         <div class="info-block">
-            <p>Basically, Oxcel is the best packers and movers in Marathahalli and also in other parts of India. On page, you can find a lot of options if you are planning to move your house or office, be it just nearby or to another city. This website is set up to help people find moving help quickly by giving out contact information and even a way to get free quotes. Also, if you run a moving business, you can use this site to check pricing.</p>
+            <p>Basically, Oxcel is the best packers and movers in Marathahalli and also in other parts of India. <span class="grammar-flag" tabindex="0" data-correction="Grammar: add the demonstrative “this.”">On page, you can find</span> a lot of options if you are planning to move your house or office, be it just nearby or to another city. This website is set up to help people find moving help quickly by giving out contact information and even a way to get free quotes. Also, if you run a moving business, you can use this site to check pricing.</p>
 
             <h3>What services do we have?</h3>
-            <p>First of all, it is important to know tha Oxcel undertake the moving. It is also a facilitator that presents you with a list of operating in home shifting, office moving, and long-distance transportation support. We offer boast of professional packing, safe loading, and shifting heavy or fragile items. It is very easy on the site to see different price ranges-for example, how much a 1BHK move might cost-so that you can choose a service within your budget.</p>
+            <p>First of all, it is important to know <span class="grammar-flag" tabindex="0" data-correction="Grammar: “tha” should be “that”; use third-person singular “undertakes.”">tha Oxcel undertake the moving</span>. It is also a facilitator that presents you with <span class="grammar-flag" tabindex="0" data-correction="Wording: “operating” is the wrong form in this sentence.">a list of operating in home shifting</span>, office moving, and long-distance transportation support. <span class="grammar-flag" tabindex="0" data-correction="Grammar: “offer boast of” is incorrect.">We offer boast of</span> professional packing, safe loading, and shifting heavy or fragile items. It is very easy on the site to see different price ranges-for example, how much a 1BHK move might cost-so that you can choose a service within your budget.</p>
 
             <p>The main reason people use Oxcel is because it's a one-stop shop. Instead of searching all over Google for different movers, you just have this big list right in one place. It saves a lot of time, and they have rounded up various professionals claiming experience and care with your stuff. Since you can get free quotes and talk to the movers directly, it is much easier to compare prices and see who gives the best deal before you decide.</p>
 
@@ -270,7 +315,7 @@
                         <i class="fas fa-truck-ramp-box"></i>
                         <span>Oxcel Packers Movers</span>
                     </div> -->
-                    <p>Your trusted relocation partner in Pune since 2010. We make shifting stress-free with professional care and transparent pricing.</p>
+                    <p><span class="ux-flag" tabindex="0" data-issue="Location mismatch: this is a Marathahalli/Bengaluru page, but the shared tagline says Pune. Replace it with verified Bengaluru-specific wording or a location-neutral tagline.">Your trusted relocation partner in Pune since 2010.</span> We make shifting stress-free with professional care and transparent pricing.</p>
                     <div class="social-links">
                         <a href="/packers-and-movers-marathahalli.html#"><i class="fab fa-facebook-f"></i></a>
                         <a href="/packers-and-movers-marathahalli.html#"><i class="fab fa-instagram"></i></a>
@@ -293,7 +338,7 @@
                 <div class="footer-contact" id="contact">
                     <h4>Contact Info</h4>
                     <ul>
-                        <li><i class="fas fa-map-marker-alt"></i> Pune, Maharashtra, India</li>
+                        <li><span class="ux-flag" tabindex="0" data-issue="Location mismatch: this Bengaluru page footer lists Pune, Maharashtra. Verify and correct the address for this page."><i class="fas fa-map-marker-alt"></i> Pune, Maharashtra, India</span></li>
                         <!--<li><i class="fas fa-phone"></i> <a href="tel:+919876543210">+91 98765 43210</a></li>-->
                         <!--<li><i class="fas fa-envelope"></i> <a href="mailto:info@oxcelpackers.com">info@oxcelpackers.com</a></li>-->
                         <li><i class="fas fa-clock"></i> Open 7 Days, 8 AM - 8 PM</li>
@@ -329,4 +374,55 @@
 
     <script src="https://oxcel.net/assets/js/main.js"></script>
 
+<script>
+(function () {
+  function initReviewTooltips() {
+    var tip = document.getElementById('review-tooltip');
+    if (!tip) {
+      tip = document.createElement('div');
+      tip.id = 'review-tooltip';
+      tip.className = 'review-tooltip';
+      tip.setAttribute('role', 'status');
+      tip.setAttribute('aria-live', 'polite');
+      document.body.appendChild(tip);
+    }
+    var active = null;
+    function show(el) {
+      if (!el || !el.matches('.grammar-flag, .ux-flag')) return;
+      active = el;
+      var isUx = el.classList.contains('ux-flag');
+      var message = isUx ? el.getAttribute('data-issue') : el.getAttribute('data-correction');
+      if (!message) return;
+      tip.textContent = (isUx ? 'UI/UX issue: ' : 'Suggested correction: ') + message;
+      tip.classList.toggle('is-grammar', !isUx);
+      tip.classList.add('is-visible');
+    }
+    function hide(el) {
+      if (!el || active === el) {
+        active = null;
+        tip.classList.remove('is-visible', 'is-grammar');
+        tip.textContent = '';
+      }
+    }
+    document.addEventListener('pointerover', function (event) {
+      var el = event.target.closest && event.target.closest('.grammar-flag, .ux-flag');
+      if (el) show(el);
+    });
+    document.addEventListener('pointerout', function (event) {
+      var el = event.target.closest && event.target.closest('.grammar-flag, .ux-flag');
+      if (el && !el.contains(event.relatedTarget)) hide(el);
+    });
+    document.addEventListener('focusin', function (event) {
+      var el = event.target.closest && event.target.closest('.grammar-flag, .ux-flag');
+      if (el) show(el);
+    });
+    document.addEventListener('focusout', function (event) {
+      var el = event.target.closest && event.target.closest('.grammar-flag, .ux-flag');
+      if (el) hide(el);
+    });
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', initReviewTooltips);
+  else initReviewTooltips();
+})();
+</script>
 </body></html>
