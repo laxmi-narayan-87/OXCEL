@@ -44,6 +44,43 @@
 }
 
 
+
+/* UI/UX review annotations: purple outlines mark components to review. */
+.ux-flag {
+    position: relative;
+    outline: 2px dashed #7c3aed;
+    outline-offset: 3px;
+    border-radius: 3px;
+    cursor: help;
+}
+.ux-flag::after {
+    content: "UI/UX issue: " attr(data-issue);
+    position: absolute;
+    z-index: 10000;
+    left: 0;
+    top: calc(100% + 8px);
+    width: max-content;
+    max-width: min(340px, 85vw);
+    padding: 10px 12px;
+    border: 1px solid #7c3aed;
+    border-radius: 6px;
+    background: #fff;
+    color: #111;
+    font: 600 13px/1.45 Arial, sans-serif;
+    white-space: normal;
+    box-shadow: 0 5px 18px rgba(0,0,0,.22);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity .15s ease;
+}
+.ux-flag:hover::after,
+.ux-flag:focus::after {
+    opacity: 1;
+    visibility: visible;
+}
+.ux-flag:focus { outline-style: solid; }
+
 /* Footer grammar annotations use the same yellow warning treatment. */
 .site-footer .grammar-flag {
     background: #ffeb3b;
@@ -84,7 +121,7 @@
 <!--        </div>-->
 <!--    </div>-->
 
-<!--    <header class="site-header">-->
+<!--    <header class="site-header ux-flag" tabindex="0" data-issue="The desktop navigation contains many links in one row; verify spacing and legibility at medium viewport widths.">-->
 <!--        <div class="container">-->
 <!--            <div class="logo-area">-->
 <!--                <div class="logo">-->
@@ -99,7 +136,7 @@
 <!--                    </a>-->
 <!--                </div>-->
 <!--            </div>-->
-<!--            <button class="mobile-menu-toggle" id="mobileToggle" aria-label="Menu">-->
+<!--            <button class="mobile-menu-toggle ux-flag" id="mobileToggle" aria-label="Menu" tabindex="0" data-issue="Verify that the menu toggle exposes expanded/collapsed state with aria-expanded and that keyboard focus is visible.">-->
 <!--                <i class="fas fa-bars"></i>-->
 <!--            </button>-->
 <!--            <nav class="main-nav" id="mainNav">-->
@@ -156,11 +193,11 @@
     <div class="container">
         <div class="hero-content">
             <h1>Oxcel Packers Movers Business Directory</h1>
-            <div class="hero-tagline">
+            <div class="hero-tagline ux-flag" tabindex="0" data-issue="The all-caps tagline is visually dense and competes with the main heading; reduce emphasis and improve hierarchy.">
                 <span class="highlight"><span><span class="grammar-flag" tabindex="0" data-correction="At">AT</span> Oxcel Packers <span class="grammar-flag" tabindex="0" data-correction="and">And</span> Movers Business Directory — We Make Shifting Stress-Free</span></span>
             </div>
             <p>Moving is always hectic. We're here to make it smooth. <a href="/packers-movers-pune.html"> Oxcel Packers And Movers in Pune </a> handles your entire relocation from start to finish, so you can focus on the new chapter, not the boxes.</p>
-            <div class="hero-buttons">
+            <div class="hero-buttons ux-flag" tabindex="0" data-issue="Primary and secondary calls to action should have clearly distinct visual priority and consistent spacing at narrow widths.">
                 <a href="https://oxcel.net/#services" class="btn btn-primary">Our Services</a>
                 <a href="/contactus.html" class="btn btn-outline">Get Free Quote</a>
             </div>
@@ -172,7 +209,7 @@
         <div class="hero-image">
             <!-- <i class="fas fa-truck-moving"></i>
             <i class="fas fa-boxes"></i> -->
-            <img src="https://oxcel.net/1s.png" alt="" width="100%">
+            <img src="https://oxcel.net/1s.png" alt="" width="100%" class="ux-flag" tabindex="0" data-issue="Decorative or informative image intent is unclear because alt text is empty; add meaningful alternative text if the image conveys information.">
         </div>
     </div>
 </section>
@@ -184,7 +221,7 @@
             <h2>Services We Offer</h2>
             <p>Comprehensive relocation solutions tailored to your needs</p>
         </div>
-        <div class="services-grid">
+        <div class="services-grid ux-flag" tabindex="0" data-issue="Check card height, text density, and alignment across columns so cards scan consistently.">
             <div class="service-card">
                 <div class="service-icon"><i class="fas fa-home"></i></div>
                 <h3>Home Relocation</h3>
@@ -231,7 +268,7 @@
             <h2>Why Choose Oxcel? <span class="question-mark">❓️</span></h2>
             <p>Your trusted partner for stress-free moving</p>
         </div>
-        <div class="features-grid">
+        <div class="features-grid ux-flag" tabindex="0" data-issue="Four feature cards can become cramped at tablet widths; preserve readable text and adequate spacing at every breakpoint.">
             <div class="feature-item">
                 <i class="fas fa-calendar-week"></i>
                 <h3>Open 7 Days a Week</h3>
@@ -255,7 +292,7 @@
         </div>
         <div class="payment-methods">
             <h3>We Accept:</h3>
-            <div class="payment-icons">
+            <div class="payment-icons ux-flag" tabindex="0" data-issue="Payment labels and icons need consistent spacing and wrapping; ensure each label remains associated with its icon.">
                 <i class="fas fa-money-bill-wave"></i> Cash
                 <i class="fab fa-cc-visa"></i> Cards
                 <i class="fas fa-mobile-alt"></i> UPI
@@ -315,7 +352,7 @@
     </main>
     <footer class="site-footer">
         <div class="container">
-            <div class="footer-grid">
+            <div class="footer-grid ux-flag" tabindex="0" data-issue="The footer has four dense columns; verify that columns do not become cramped and that links remain easy to scan on tablet and mobile.">
                 <div class="footer-about">
                     <img src="https://oxcel.net/oxcel_logo.png" alt="" style="height: 65px;">
                     <!-- <div class="footer-logo">
@@ -323,7 +360,7 @@
                         <span>Oxcel Packers Movers</span>
                     </div> -->
                     <p>Your trusted relocation partner in Pune since 2010. We make <span class="grammar-flag" tabindex="0" data-correction="moving">shifting</span> stress-free with professional care and transparent pricing.</p>
-                    <div class="social-links">
+                    <div class="social-links ux-flag" tabindex="0" data-issue="Social links currently point to placeholder hash URLs; provide real destinations and accessible names for icon-only links.">
                         <a href="https://oxcel.net/#"><i class="fab fa-facebook-f"></i></a>
                         <a href="https://oxcel.net/#"><i class="fab fa-instagram"></i></a>
                         <a href="https://oxcel.net/#"><i class="fab fa-twitter"></i></a>
