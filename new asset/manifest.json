@@ -1,0 +1,23 @@
+{
+  "name": "OXCEL Improvised Website Asset Library",
+  "version": 1,
+  "status": "initialized",
+  "purpose": "Store reviewed, optimized assets for the improvised OXCEL website without changing original site assets.",
+  "directories": {
+    "images": "Optimized site photography and content images",
+    "logos": "Approved brand marks and favicon sources",
+    "icons": "SVG icons and interface illustrations",
+    "fonts": "Licensed local web fonts",
+    "backgrounds": "Decorative backgrounds and textures",
+    "documents": "Approved downloadable static documents"
+  },
+  "asset_conventions": {
+    "photography": ["avif", "webp", "jpg"],
+    "logos_and_icons": ["svg", "png"],
+    "fonts": ["woff2"],
+    "descriptive_filenames": true,
+    "include_alt_text_or_usage_notes": true,
+    "confirm_license_or_source": true
+  },
+  "assets": []
+}
