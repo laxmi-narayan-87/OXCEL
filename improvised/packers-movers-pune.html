@@ -248,51 +248,7 @@
     
     
 
-<style>/* Review annotation styling. Tooltips are rendered in a body-level overlay, not pseudo-elements inside components. */
-.grammar-flag, .ux-flag { position: relative; cursor: help; }
-.grammar-flag {
-  display: inline;
-  color: #111;
-  background: #e53935;
-  font-weight: 800;
-  padding: .08em .22em;
-  border-radius: 3px;
-  box-decoration-break: clone;
-  -webkit-box-decoration-break: clone;
-}
-.ux-flag { outline: 2px dashed #7c3aed; outline-offset: 3px; border-radius: 3px; }
-.ux-flag:focus { outline-style: solid; }
-.site-footer .grammar-flag { background: #ffeb3b; color: #111; font-weight: 800; }
-.review-tooltip {
-  position: fixed !important;
-  z-index: 2147483647 !important;
-  top: 12px !important;
-  right: 12px !important;
-  left: auto !important;
-  width: min(380px, calc(100vw - 24px)) !important;
-  max-height: min(42vh, 280px) !important;
-  overflow: auto !important;
-  box-sizing: border-box !important;
-  padding: 14px 16px !important;
-  border: 2px solid #7c3aed !important;
-  border-radius: 10px !important;
-  background: #fff !important;
-  color: #111 !important;
-  font: 600 14px/1.5 Arial, sans-serif !important;
-  white-space: normal !important;
-  overflow-wrap: anywhere !important;
-  box-shadow: 0 10px 36px rgba(0,0,0,.32) !important;
-  opacity: 0;
-  visibility: hidden;
-  pointer-events: none;
-}
-.review-tooltip.is-visible { opacity: 1; visibility: visible; }
-.review-tooltip.is-grammar { border-color: #e53935 !important; }
-.site-footer ~ .review-tooltip.is-grammar { border-color: #d4a900 !important; }
-@media (max-width: 480px) {
-  .review-tooltip { top: 8px !important; right: 8px !important; width: calc(100vw - 16px) !important; }
-}
-</style>
+
 <style>
 .improved-page .mission-vision,.improved-page .material-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
 .improved-page .mission-vision article,.improved-page .material-grid article{background:#fff;border:1px solid #e7eaf0;border-radius:12px;padding:20px;box-shadow:0 6px 18px rgba(26,43,73,.06)}
