@@ -339,10 +339,10 @@
         <!-- ================= QUOTATION FORM ================= -->
         <div class="hero-form-box">
             <div class="oxcel-quote-form">
-                <h2 For Quotation Fill Your Shifting Details</h2>
+                <h2>Enter Your Moving Details for a Quote</h2>
                 <p class="form-sub ux-flag" tabindex="0" data-issue="Trust/UX claim: “Quick response” and “Best price guarantee” are promises. Verify that the business can substantiate them and clarify the response timeframe or guarantee terms.">Quick response • No obligation • Best price guarantee</p>
 
-                <form 
+                <form action="#" method="get" data-static-demo="true" aria-label="Moving quote request demo">
                     <!-- Row 1: Name | Mobile -->
                     <div class="form-row">
                         <input type="text" name="name" placeholder="Name" required="">
@@ -361,7 +361,8 @@
                     <!-- Row 4: Shifting To Address -->
                     <textarea name="to_address" placeholder="Shifting To Address" rows="2"></textarea>
 
-                    <button type="submit" class="btn-submit">Submit</button>
+                    <button type="submit" class="btn-submit">Preview quote request</button>
+                    <p class="small-note">Demo form only: this page does not submit personal details to Oxcel or a moving provider.</p>
                 </form>
             </div>
         </div>
@@ -672,4 +673,15 @@
     </footer>
 <script src="https://oxcel.net/assets/js/main.js"></script>
 <script>document.addEventListener("DOMContentLoaded",function(){var b=document.getElementById("mobileToggle"),n=document.getElementById("mainNav");if(b&&n){b.addEventListener("click",function(){var open=n.classList.toggle("is-open");b.setAttribute("aria-expanded",String(open));});}});</script>
+<script>
+document.addEventListener("DOMContentLoaded",function(){
+  var demoForm=document.querySelector('form[data-static-demo="true"]');
+  if(demoForm){demoForm.addEventListener("submit",function(event){
+    event.preventDefault();
+    var note=demoForm.querySelector(".demo-result");
+    if(!note){note=document.createElement("p");note.className="small-note demo-result";note.setAttribute("role","status");demoForm.appendChild(note);}
+    note.textContent="Preview only. No information has been sent. Contact the selected provider directly to request a quotation.";
+  });}
+});
+</script>
 </body></html>
